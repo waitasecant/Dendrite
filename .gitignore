@@ -1,5 +1,3 @@
 *.docx
 *.txt
-*.py
-trash.ipynb
-utils.ipynb
+*.ipynb
