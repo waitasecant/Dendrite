@@ -12,7 +12,7 @@
 
 5. `featureReduction()` : Returns the data matrix after feature reduction and the target variable.
 
-6. ` main()` : Prints best (hyper)parameters, best score and the corresponding model object.
+6. `main()` : Prints best (hyper)parameters, best score and the corresponding model object.
 
 ### Sub-helper functions
 
