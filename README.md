@@ -12,7 +12,7 @@
 
 5. `featureReduction()` : Returns the data matrix after feature reduction and the target variable.
 
-6. `main()` : Prints best (hyper)parameters, best score and the corresponding model object.
+6. ` main()` : Prints best (hyper)parameters, best score and the corresponding model object.
 
 ### Sub-helper functions
 
@@ -41,3 +41,13 @@ Execute `main()` is called which implements following steps:
 4. Executes `getAlgorithm(algorithm, target)` where `algorithms` and `target` are extracted from JSON.
 
 5. For each relevant model depending on `type` in `target` fit `X`, `y` to `GridSearchCV()`
+
+### Note
+
+1. I have turned `is_selected` to `True` for all the models.
+
+2. I have taken a bit liberty in deciding on which algorithms to execute for given type of prediction and the kind of hyper parameters available in `algorithms` dictionary. For instance, in case of SGD, the loss available as (not-hyper)parameter as `use_logistics` and `use_modified_hubber_loss` are available as legitimate attribute in only `SGDClassifier()` and not `SGDRegressor()`. Hence, I have deciding to run this model only if `type` is set as `classification`.
+
+3. Some parameters are not taken into account. For instance, in case of Neural Networks, lot of parameters are set to zero by default, some them are supposed to be positive. Hence, those are not taken into account. 
+
+4. Instructions to some of the possible modifications to the methods is given as comments in the driver code.
