@@ -328,8 +328,8 @@ def getAlgorithm(algoDict, targetDict):
     if regtype.lower() == 'regression':
         possibleModels = ['RandomForestRegressor', 'GBTRegressor', 'LinearRegression',
                           'RidgeRegression', 'LassoRegression', 'ElasticNetRegression',
-                          'xg_boost', 'DecisionTreeRegressor', 'neural_network',
-                          'SVM', 'KNN', 'extra_random_trees']
+                          'xg_boost', 'DecisionTreeRegressor', 'SVM', 'KNN',
+                          'extra_random_trees', 'neural_network']
         selectedModels = []
         for models in possibleModels:
             if algoDict[models]['is_selected'] == True:
@@ -343,8 +343,8 @@ def getAlgorithm(algoDict, targetDict):
 
     elif regtype.lower() == 'classification':
         possibleModels = ['RandomForestClassifier', 'GBTClassifier', 'LogisticRegression',
-                          'xg_boost', 'DecisionTreeClassifier', 'neural_network',
-                          'SVM', 'SGD', 'KNN', 'extra_random_trees']
+                          'xg_boost', 'DecisionTreeClassifier','SVM', 'SGD', 'KNN',
+                          'extra_random_trees', 'neural_network']
         selectedModels = []
         for models in possibleModels:
             if algoDict[models]['is_selected'] == True:
@@ -447,7 +447,15 @@ if __name__ == "__main__":
     hyperparameters = mainDict['design_state_data']['hyperparameters']
     algorithms = mainDict['design_state_data']['algorithms']
 
-    # Modifying algorithms to test
+    # Modifying parameters to test
+    
+    # Choose from 'Principal Component Analysis', 'No Reduction', 'Correlation with target', 'Tree-based'
+    feature_reduction['feature_reduction_method'] = 'Tree-based'
+    
+    # Choose from 'regression' and 'classification'
+    target['prediction_type'] = 'regression'
+
+    # Turn any to False
     algorithms['RandomForestRegressor']['is_selected'] = True
     algorithms['RandomForestClassifier']['is_selected'] = True
     algorithms['GBTClassifier']['is_selected'] = True
